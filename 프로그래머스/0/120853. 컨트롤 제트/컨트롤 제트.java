@@ -1,19 +1,24 @@
-import java.util.Arrays;
+import java.util.Stack;
 class Solution {
     public int solution(String s) {
+        
         String[] element = s.split(" ");
-        for (int i = 0; i <element.length ; i++) {
-            if(element[i].equals("Z")) {
-                element[i - 1] = "0";
-                element[i] = "0";
-            }
-      }
-        int[] num = new int[element.length];
-        int answer = 0;
+        Stack<Integer> stack = new Stack<>();
+
         for (int i = 0; i < element.length ; i++) {
-            num[i] = Integer.parseInt(element[i]);
-            answer+=num[i];
+            if(element[i].equals("Z")) {
+                stack.pop();
+            } else {
+                stack.push(Integer.parseInt(element[i]));
+            }
+
         }
-        return answer;
+        int sum=0;
+        for (int i = 0; i < stack.size() ; i++) {
+
+            sum += stack.elementAt(i);
+
+        }
+        return sum;
     }
 }
