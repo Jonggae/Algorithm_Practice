@@ -1,33 +1,18 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 
+import java.util.ArrayList;
 class Solution {
     public int solution(int[] sides) {
-        int max = Arrays.stream(sides).sum();
+        int answer = 0;
+         int max = Math.max(sides[0],sides[1]);
+        int min = Math.min(sides[0],sides[1]);
         ArrayList<Integer> num = new ArrayList<>();
-        if (sides[0] < sides[1]) {
-            for (int i = 1; i < max; i++) {
-                if(sides[1]-sides[0] < i && i < sides[0]+sides[1]){
-                    num.add(i);
-                }
-            }
-        }
-        if (sides[0]> sides[1]) {
-            for (int i = 1; i < max; i++) {
-                if (sides[0] - sides[1] < i && i < sides[0] + sides[1]) {
-                    num.add(i);
-                }
-            }
-        }
-        if( sides[0] == sides[1]) {
-            for (int i = 1; i < max; i++) {
-                if ( i < sides[0] + sides[1]) {
-                    num.add(i);
-                }
+        for (int i = 1; i <max+min ; i++) {
+            if(max-min <i && i<max+min) {
+                num.add(i);
             }
 
         }
-        int answer = num.size();
+        answer = num.size();
         return answer;
     }
 }
