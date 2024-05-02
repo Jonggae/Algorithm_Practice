@@ -1,36 +1,15 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-
 class Solution {
     public int solution(int left, int right) {
-            HashMap<Integer, ArrayList<Integer>> div = new HashMap<>();
-        ArrayList<Integer> divs;
-        
         int answer = 0;
-        
-         for (int i = left; i <= right; i++) {
-            ArrayList<Integer> temp = new ArrayList<>();
-            for (int j = 1; j <= i; j++) {
-
-                if (i % j == 0) {
-
-                    temp.add(j);
-                }
-
+          for (int i = left; i <= right; i++) {
+            // i의 제곱근이 정수인지 확인
+            if (Math.sqrt(i) == (int) Math.sqrt(i)) {
+                answer -= i; // 홀수 개수인 경우 (완전제곱수)
+            } else {
+                answer += i; // 짝수 개수인 경우
             }
-            divs = temp;
-            div.put(i,divs);
         }
-         for (int i = left; i <=right ; i++) {
-            if(div.get(i).size() % 2 == 0) {
-
-                answer += i;
-            }else {
-
-                answer -= i;
-            }
-
-        }
+            
         return answer;
     }
 }
