@@ -2,7 +2,6 @@ import sys
 
 n, m = map(int, input().split())
 
-hear = []
 set = set()
 answer = []
 for _ in range(n):
