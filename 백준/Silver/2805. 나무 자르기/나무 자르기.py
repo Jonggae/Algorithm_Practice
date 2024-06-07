@@ -1,5 +1,9 @@
-n, m = map(int, (input().split()))
-trees = list(map(int, input().split()))
+import sys
+input = sys.stdin.read
+data = input().split()
+n = int(data[0])
+m = int(data[1])
+trees = list(map(int, data[2:]))
 
 
 def wood_cut(trees, height):# 해당 톱으로 자른 나무 길이의 합
