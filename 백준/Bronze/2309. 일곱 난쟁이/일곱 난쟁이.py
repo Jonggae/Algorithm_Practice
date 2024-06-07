@@ -6,7 +6,7 @@ sum_height = sum(height)
 
 # 조합? 으로 7개를 선택하여 100이되는 경우를 찾아본다?
 
-answer = list(permutations(height, 2))
+answer = list(combinations(height, 2))
 
 for c in answer:
     if sum(c) == sum_height - 100:
