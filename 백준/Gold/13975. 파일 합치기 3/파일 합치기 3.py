@@ -1,7 +1,7 @@
 import sys
 
 from heapq import *
-t = int(input())
+t = int(sys.stdin.readline())
 
 def sum_cost(file_size):
     total_cost = 0
@@ -19,6 +19,6 @@ def sum_cost(file_size):
     return total_cost
 
 for _ in range(t):
-    chapter = int(input())
+    chapter = int(sys.stdin.readline())
     file_size = list(map(int, (sys.stdin.readline().split())))
     print(sum_cost(file_size))
